@@ -1,0 +1,52 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+  <br>
+  <br>
+  <br>
+  <div class="ui container">
+    <form id="form" action="/pacientes/edit/<%- Paciente._id %>" class="ui form" method="POST">
+      <div class="three fields">
+        <div class="field">
+          <label for="nome" class="ui header">Nome do Paciente:</label>
+          <input type="text" name="nome" value="<%- Paciente.nome %>">
+        </div>
+        <div class="field">
+          <label for="cpf" class="ui header">CPF do Paciente:</label>
+          <input type="text" name="cpf" value="<%- Paciente.cpf %>">
+        </div>
+        <div class="field">
+          <label for="telefone" class="ui header">Telefone do Paciente:</label>
+          <input type="text" name="telefone" value="<%- Paciente.telefone %>">
+        </div>
+        <div class="field">
+          <label for="email" class="ui header">E-mail do Paciente:</label>
+          <input type="text" name="email" value="<%- Paciente.email %>">
+        </div>
+        <div class="field">
+          <label for="endereco" class="ui header">Endereço do Paciente:</label>
+          <input type="text" name="endereco" value="<%- Paciente.endereco %>">
+        </div>
+        <div class="field">
+          <label for="endereco" class="ui header">Sintomas do Paciente:</label>
+          <input type="text" name="sintomas" value="<%- Paciente.sintomas %>">
+        </div>
+        <div class="field">
+          <label for="endereco" class="ui header">Médico responsável:</label>
+          <input type="text" name="medicoresponsavel" value="<%- Paciente.medicoresponsavel %>">
+        </div>
+        <div class="field">
+          <label for="endereco" class="ui header">Endereço do Médico:</label>
+          <input type="text" name="medicoespecialidade" value="<%- Paciente.medicoespecialidade %>">
+        </div>
+      </div>
+      <div class="field fluid">
+        <button type="submit" class="ui button fluid green">Atualizar Consulta</button>
+      </div>
+    </form>
+    <br>
+    <br>
+    <br>
+  </div>
+
+<%- include('includes/footer') %>

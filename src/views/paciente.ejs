@@ -1,0 +1,114 @@
+<%- include('includes/head') %>
+<%- include('includes/nav') %>
+
+  <br>
+  <br>
+  <br>
+  <div class="ui container">
+    <form id="form" action="/pacientes/add" class="ui form" method="POST">
+      <div class="three fields">
+        <div class="field">
+          <label for="nome" class="ui header">Nome do Paciente:</label>
+          <input type="text" name="nome">
+        </div>
+        <div class="field">
+          <label for="cpf" class="ui header">CPF do Paciente:</label>
+          <input type="text" name="cpf">
+        </div>
+        <div class="field">
+          <label for="telefone" class="ui header">Telefone do Paciente:</label>
+          <input type="text" name="telefone">
+        </div>
+        <div class="field">
+          <label for="email" class="ui header">E-mail do Paciente:</label>
+          <input type="text" name="email">
+        </div>
+        <div class="field">
+          <label for="endereco" class="ui header">Endereço do Paciente:</label>
+          <input type="text" name="endereco">
+        </div>
+        <div class="field">
+          <label for="endereco" class="ui header">Sintomas do Paciente:</label>
+          <input type="text" name="sintomas">
+        </div>
+        <div class="field">
+          <label for="endereco" class="ui header">Nome do médico responsável:</label>
+          <input type="text" name="medicoresponsavel">
+        </div>
+        <div class="field">
+          <label for="endereco" class="ui header">Especialidade do médico:</label>
+          <input type="text" name="medicoespecialidade">
+        </div>
+      </div>
+      <div class="field fluid">
+        <button type="submit" class="ui button fluid green">Cadastrar Consulta</button>
+      </div>
+    </form>
+    <br>
+    <br>
+    <br>
+
+    <table class="ui table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Telefone</th>
+          <th>E-mail</th>
+          <th>Endereço</th>
+          <th>Sintomas</th>
+          <th>Médico</th>
+          <th>Especialidade</th>
+          <th>Editar</th>
+          <th>Apagar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Percorre a variavel em que os dados foram armazenados -->
+        <% pacientes.forEach((paciente)=>{%>
+          <tr>
+            <!-- Adiciona os dados na tabela -->
+            <td id="pacienteNome">
+              <%- paciente.nome %>
+            </td>
+            <td id="pacienteCPF">
+              <%- paciente.cpf %>
+            </td>
+            <td id="pacienteTelefone">
+              <%- paciente.telefone %>
+            </td>
+            <td id="pacienteEmail">
+              <%- paciente.email %>
+            </td>
+            <td id="pacienteEndereco">
+              <%- paciente.endereco %>
+            </td>
+            <td id="pacienteSintomas">
+              <%- paciente.sintomas %>
+            </td>
+            <td id="pacienteMedicoresponsavel">
+              <%- paciente.medicoresponsavel %>
+            </td>
+            <td id="pacienteMedicoespecialidade">
+              <%- paciente.medicoespecialidade %>
+            </td>
+            <!-- Inclui os icones de editar e apagar -->
+            <td>
+              <!-- Passo o endereço com o id do paciente -->
+              <a class="ui green button" href="/pacientes/edit/<%= paciente._id %>">
+                <i class="edit outline icon"></i>
+              </a>
+            </td>
+            <td>
+              <a class="ui red button" href="/pacientes/delete/<%= paciente._id %>">
+                <i class="minus icon"></i>
+              </a>
+            </td>
+          </tr>
+          <% }); %>
+      </tbody>
+    </table>
+
+  </div>
+
+<%- include('includes/footer') %>
